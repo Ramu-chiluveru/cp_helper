@@ -41,8 +41,10 @@ def generate_response(prompt: str, model: str = "gpt-4o"):
     except Exception as e:
         print("Error:", e)
         return f"Error: {e}"
+@app.get("/")
+def test():
+    return {"success" : "Test Success"}
 
-# API endpoint
 @app.post("/explain")
 def explain(data: Prompt):
     print("Received prompt:\n", data.prompt)
