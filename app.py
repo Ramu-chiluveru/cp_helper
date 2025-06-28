@@ -31,15 +31,10 @@ def generate_response(prompt: str, model: str = "gpt-4o"):
     print("Generating response from OpenAI...")
 
     try:
-        response = client.chat.completions.create(
-            model=model,
-            messages=[
-                {"role": "system", "content": "You are an expert in Competitive Programming."},
-                {"role": "user", "content": prompt}
-            ],
-            temperature=0.7,
-            max_tokens=300
-        )
+        response = client.chat.completions.create(model="gpt-4o",messages=[
+        {"role": "system", "content": "You are a CP expert."},
+        {"role": "user", "content": "Prompt here"}
+        ])
         reply = response.choices[0].message.content
         print("OpenAI response:", reply)
         return reply
